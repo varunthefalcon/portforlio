@@ -3,7 +3,7 @@ import './App.scss';
 import varun from './varun.png'
 import { AiFillFacebook, AiFillYoutube, AiFillGithub } from "react-icons/ai";
 import { GoMailRead } from "react-icons/go";
-import { FaStackOverflow, FaPhoneSquareAlt } from "react-icons/fa";
+import { FaStackOverflow, FaPhoneSquareAlt, FaLinkedin } from "react-icons/fa";
 import { ImFolderDownload } from 'react-icons/im'
 import { DiAndroid } from 'react-icons/di'
 import { useState } from 'react';
@@ -16,6 +16,7 @@ const floatInfo = [
   { id: 'youtube', label: 'Youtube', Icon: AiFillYoutube, link: 'https://www.youtube.com/@varuns6451', },
   { id: 'gmail', label: 'varunsk.dev \n Hire Me', Icon: GoMailRead, link: 'mailto:varunsk.dev@gmail.com?Subject=Very excited to work with you', },
   { id: 'stackoverflow', label: 'Stackoverflow', Icon: FaStackOverflow, link: 'https://stackoverflow.com/users/8129206/varun-suresh-kumar', },
+  { id: 'linkedin', label: 'LinkedIn', Icon: FaLinkedin, link: 'https://www.linkedin.com/in/varun-sureshkumar/', },
   { id: 'phone', label: '7552759961 \n  Mobile(UK)', Icon: FaPhoneSquareAlt, link: 'tel: +44 7552759961', },
   { id: 'android_app', label: 'Android\n App', Icon: DiAndroid, link: 'https://play.google.com/store/apps/details?id=com.varunthefalcon.securebook&pli=1', },
   { id: 'resume', label: 'Resume', Icon: ImFolderDownload, download: true, link: 'https://github.com/varunthefalcon/web-developer/raw/master/Varun_SK_Frontend_Dev_Resume.pdf', },
