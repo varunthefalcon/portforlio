@@ -1,0 +1,133 @@
+.textCentered {
+  text-align: center;
+}
+
+.closeIcon {
+  cursor: pointer;
+}
+
+.closeIcon:hover {
+  background-color: rgb(255, 200, 200);
+  /* border-radius: 50%; */
+}
+
+.ui_window {
+  border: 1px solid gray;
+  /* width: 600px; */
+  /* height: 300px; */
+  border-radius: 3px;
+  background-color: white;
+  border: 2px solid #a2d4ff;
+}
+
+.window_handle {
+  cursor: move;
+  background-color: #a2d4ff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.window_content {
+  padding: 5px;
+}
+
+.hover_emboss {
+  cursor: pointer;
+}
+
+.hover_emboss:hover {
+  cursor: pointer;
+  scale: 1.1;
+}
+
+/* excel sheet */
+
+table {
+  border: none;
+  cursor: pointer;
+}
+
+.sheet_cell {
+  border-bottom: 1px solid rgba(170, 170, 170, 0.5);
+  border-right: 1px solid rgba(170, 170, 170, 0.5);
+  padding: 2px 4px;
+}
+
+.sheet_head_cell {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
+.sheet_cell:hover {
+  background-color: lightblue;
+}
+/* 
+.sheet_head_cell {
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+} */
+
+.chat_window_wrapper {
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: white;
+}
+
+.chat_icon_wrapper {
+  display: flex;
+  border: 1px solid red;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(200, 0, 0, 0.4);
+  animation: custom_pulse 1s infinite;
+}
+
+.chat_icon {
+  font-size: 2.5em !important;
+  display: contents !important;
+}
+
+@keyframes custom_pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(200, 0, 0, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(200, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(200, 0, 0, 0);
+  }
+}
+
+.react-draggable {
+  position: absolute !important;
+}
+
+.margin-0 {
+  margin: 0 !important;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f0f0f0;
+}
