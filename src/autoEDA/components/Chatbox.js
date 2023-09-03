@@ -54,14 +54,14 @@ const ChatBox = (props) => {
           <div
             onClick={toggle}
             style={{
-              backgroundColor: "#a2d4ff",
+              backgroundColor: "#8088ff",
               padding: "5px",
               cursor: "pointer",
               display: "flex",
               justifyContent: "space-between",
             }}
           >
-            <span>AI assistant</span>
+            <span style={{ color: "white" }}>AI assistant</span>
             <Icon name="window minimize outline" />
           </div>
           <div

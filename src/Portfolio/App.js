@@ -3,7 +3,7 @@ import "./App.scss";
 import varun from "./varun.png";
 import { AiFillFacebook, AiFillYoutube, AiFillGithub } from "react-icons/ai";
 import { BiLogoGmail } from "react-icons/bi";
-import { FaStackOverflow, FaPhoneSquareAlt } from "react-icons/fa";
+import { FaStackOverflow, FaPhoneSquareAlt, FaLinkedin } from "react-icons/fa";
 import { ImFolderDownload } from "react-icons/im";
 import { MdAutoGraph } from "react-icons/md";
 import { DiAndroid } from "react-icons/di";
@@ -65,6 +65,12 @@ const floatInfo = [
     label: "AutoEDA",
     Icon: MdAutoGraph,
     link: "/autoeda",
+  },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    Icon: FaLinkedin,
+    link: "https://www.linkedin.com/in/varun-sureshkumar/",
   },
 ];
 

@@ -22,7 +22,7 @@
 
 .window_handle {
   cursor: move;
-  background-color: #a2d4ff;
+  background-color: #8088ff;
   display: flex;
   justify-content: space-between;
 }
@@ -62,7 +62,7 @@ table {
 }
 
 .sheet_cell:hover {
-  background-color: lightblue;
+  background-color: #bec2ff;
 }
 /* 
 .sheet_head_cell {
@@ -78,7 +78,7 @@ table {
 
 .chat_icon_wrapper {
   display: flex;
-  border: 1px solid red;
+  border: 1px solid #8088ff;
   justify-content: center;
   align-items: center;
   background-color: white;
@@ -95,15 +95,19 @@ table {
   display: contents !important;
 }
 
+i.red.icon {
+  color: #8088ff !important;
+}
+
 @keyframes custom_pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(200, 0, 0, 0.4);
+    box-shadow: 0 0 0 0 rgba(128, 136, 255, 0.4);
   }
   70% {
-    box-shadow: 0 0 0 20px rgba(200, 0, 0, 0);
+    box-shadow: 0 0 0 20px rgba(128, 136, 255, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(200, 0, 0, 0);
+    box-shadow: 0 0 0 0 rgba(128, 136, 255, 0);
   }
 }
 
@@ -130,4 +134,13 @@ th {
 
 tr:nth-child(even) {
   background-color: #f0f0f0;
+}
+
+.navbar_options {
+  line-height: 35px;
+}
+
+.navbar_options:hover {
+  border-bottom: inset 3px white;
+  cursor: pointer;
 }
