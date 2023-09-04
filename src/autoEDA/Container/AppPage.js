@@ -17,7 +17,10 @@ const AppPage = () => {
     const config = {
       method: "POST",
       url: URL_GET_CSV,
-      data: { fileID: params.id },
+      headers: {
+        "Content-Type": "application/json",
+      },
+      params: { fileID: params.id },
     };
 
     try {
