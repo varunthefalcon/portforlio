@@ -58,7 +58,7 @@ const floatInfo = [
     label: "Resume",
     Icon: ImFolderDownload,
     download: true,
-    link: "https://github.com/varunthefalcon/web-developer/raw/master/Varun_SK_Frontend_Dev_Resume.pdf",
+    link: "https://github.com/varunthefalcon/web-developer/raw/master/Varun_SK_Frontend_CV.pdf",
   },
   {
     id: "autoEDA",
