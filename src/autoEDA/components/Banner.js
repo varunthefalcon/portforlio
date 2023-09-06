@@ -97,7 +97,7 @@ const Banner = () => {
                   </span>
                 }
               >
-                Download Titanic dataset here to try the app.
+                Download Titanic dataset as CSV to try the app.
               </Popup>
             </a>
           )}

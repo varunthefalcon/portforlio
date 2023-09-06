@@ -31,13 +31,13 @@ const TaskBar = () => {
               key={miniWindow.windowID}
               style={{
                 padding: "3px 6px",
-                border: "1px solid black",
+                backgroundColor: "rgb(126,136,255)",
+                border: "1px solid rgb(126,136,255)",
                 borderLeft: "none",
                 width: "120px",
                 cursor: "pointer",
                 display: "flex",
                 justifyContent: "space-between",
-                backgroundColor: "white",
               }}
             >
               <span
@@ -47,8 +47,9 @@ const TaskBar = () => {
                   textOverflow: "ellipsis",
                   whiteSpace: "nowrap",
                   overflow: "hidden",
-                  fontSize: "0.8em",
+                  // fontSize: "0.8em",
                   width: "100%",
+                  color: "white",
                 }}
               >
                 {miniWindow.windowTitle}
@@ -57,7 +58,11 @@ const TaskBar = () => {
                 onClick={() => closeWindow(miniWindow.windowID)}
                 className="closeIcon"
               >
-                <Icon name="close" style={{ margin: 0 }} color="grey" />
+                <Icon
+                  name="close"
+                  className="taskbar_close"
+                  style={{ margin: 0, color: "white !important" }}
+                />
               </span>
             </div>
           ))}

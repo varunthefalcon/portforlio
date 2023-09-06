@@ -25,9 +25,9 @@ const WindowComponent = (props = {}) => {
     windowDispatcher({ type: TOGGLE_MINIMIZE_WINDOW, payload: { windowID } });
   };
 
-  // const fullScreenWindow = (windowID) => {
-  //   windowDispatcher({ type: TOGGLE_FULLSCREEN_WINDOW, payload: { windowID } });
-  // };
+  const fullScreenWindow = (windowID) => {
+    windowDispatcher({ type: TOGGLE_FULLSCREEN_WINDOW, payload: { windowID } });
+  };
 
   const closeWindow = (windowID) => {
     if (window.confirm("Please confirm to close the window")) {
@@ -43,10 +43,11 @@ const WindowComponent = (props = {}) => {
     <>
       {miniWindows.map((miniWindow, i) => (
         <Draggable
+          bounds={{ left: 0, top: 40, right: "99%", bottom: "95%" }}
           key={miniWindow.windowID}
           handle=".window_handle"
-          defaultPosition={{ x: 50 + i * 20, y: 50 + i * 20 }}
-          // position={miniWindow.isFullWindowed ? { x: 0, y: 0 } : null}
+          defaultPosition={{ x: 50 + i * 20, y: 80 + i * 20 }}
+          position={miniWindow.isFullWindowed ? { x: 0, y: 0 } : null}
           scale={1}
         >
           <div
@@ -56,12 +57,11 @@ const WindowComponent = (props = {}) => {
             style={{
               display: miniWindow.isMinimised ? "none" : "initial",
               zIndex: miniWindow.zIndex,
-              // width: "100%",
-              // height: "100%",
+              width: miniWindow.isFullWindowed ? "98vw" : "600px",
             }}
           >
             <div className="window_handle">
-              <div style={{ padding: "5px" }}>
+              <div style={{ padding: "5px", color: "white" }}>
                 <span>{miniWindow.windowTitle}</span>
               </div>
               <div>
@@ -71,7 +71,7 @@ const WindowComponent = (props = {}) => {
                     name="window minimize outline"
                   />
                 </span>
-                {/* <span onClick={() => fullScreenWindow(miniWindow.windowID)}>
+                <span onClick={() => fullScreenWindow(miniWindow.windowID)}>
                   <Icon
                     className="hover_emboss"
                     name={
@@ -80,7 +80,7 @@ const WindowComponent = (props = {}) => {
                         : "caret square up outline"
                     }
                   />
-                </span> */}
+                </span>
                 <span onClick={() => closeWindow(miniWindow.windowID)}>
                   <Icon
                     className="closeIcon hover_emboss"
@@ -89,34 +89,24 @@ const WindowComponent = (props = {}) => {
                 </span>
               </div>
             </div>
-            <Resizable
+            <div
+              className="window_content"
               style={{
-                overflow: "scroll",
-              }}
-              defaultSize={{
-                width: 600,
-                height: 300,
+                wordBreak: "break-word",
+                textAlign: "justify",
+                padding: "10px",
+                height: miniWindow.isFullWindowed ? "95vh" : "300px",
+                overflowY: "scroll",
               }}
             >
-              <div
-                className="window_content"
-                style={{
-                  wordBreak: "break-word",
-                  textAlign: "justify",
-                  padding: "10px",
-                  // width: miniWindow.isFullWindowed ? "98vw" : "600px",
-                  // height: miniWindow.isFullWindowed ? "95vh" : "300px",
-                }}
-              >
-                {miniWindow.windowType === WINDOW_TYPE_HISTOGRAM && (
-                  <Histogram data={miniWindow} />
-                )}
+              {miniWindow.windowType === WINDOW_TYPE_HISTOGRAM && (
+                <Histogram data={miniWindow} />
+              )}
 
-                {miniWindow.windowType === WINDOW_TYPE_WELCOME && (
-                  <Greetings fileID={fileID} />
-                )}
-              </div>
-            </Resizable>
+              {miniWindow.windowType === WINDOW_TYPE_WELCOME && (
+                <Greetings fileID={fileID} />
+              )}
+            </div>
           </div>
         </Draggable>
       ))}

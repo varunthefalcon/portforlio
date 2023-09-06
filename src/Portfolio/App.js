@@ -23,12 +23,12 @@ const floatInfo = [
     Icon: AiFillFacebook,
     link: "https://www.facebook.com/varunthefalcon/",
   },
-  {
-    id: "youtube",
-    label: "Youtube",
-    Icon: AiFillYoutube,
-    link: "https://www.youtube.com/@varuns6451",
-  },
+  // {
+  //   id: "youtube",
+  //   label: "Youtube",
+  //   Icon: AiFillYoutube,
+  //   link: "https://www.youtube.com/@varuns6451",
+  // },
   {
     id: "gmail",
     label: "varunsk.dev",
@@ -55,8 +55,9 @@ const floatInfo = [
   },
   {
     id: "resume",
-    label: "Resume",
+    label: "CV",
     Icon: ImFolderDownload,
+    highlight: true,
     download: true,
     link: "https://github.com/varunthefalcon/drunk-portfolio/raw/master/Varun_SK_Frontend_CV.pdf",
   },
@@ -64,6 +65,7 @@ const floatInfo = [
     id: "autoEDA",
     label: "AutoEDA",
     Icon: MdAutoGraph,
+    highlight: true,
     link: "/autoeda",
   },
   {
@@ -101,21 +103,30 @@ function Portfolio() {
       <div className="pic_wrapper">
         <img src={varun} alt="bust" className="pic" />
         <div className="grids">
-          <div style={{ position: "relative" }}>
-            {floatInfo.map(({ id, link, label, Icon, download = false }) => (
-              <Randomizer key={id}>
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href={link}
-                  download={download}
-                  className="icon_labels"
-                >
-                  <Icon color="white" size={"3rem"} />
-                  {label}
-                </a>
-              </Randomizer>
-            ))}
+          <div style={{ position: "relative", textAlign: "center" }}>
+            {floatInfo.map(
+              ({
+                id,
+                link,
+                label,
+                Icon,
+                download = false,
+                highlight = false,
+              }) => (
+                <Randomizer key={id} highlight={highlight}>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={link}
+                    download={download}
+                    className="icon_labels"
+                  >
+                    <Icon color="white" size={"3rem"} />
+                    {label}
+                  </a>
+                </Randomizer>
+              )
+            )}
           </div>
         </div>
         <p className="name" style={{ fontFamily: fontsArr[fontIndex] }}>

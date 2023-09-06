@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const Randomizer = (props) => {
-  const { height = 40, width = 40 } = props;
+  const { height = 40, width = 40, highlight } = props;
 
   const speed = 5;
   const frameRate = 130;
@@ -70,7 +70,7 @@ const Randomizer = (props) => {
           height: height + "px",
           position: "absolute",
         }}
-        className="floatItems"
+        className={`floatItems ${highlight ? "pulse_bg" : ""}`}
         onMouseOver={pauseMovement}
         onMouseLeave={continueMovement}
       >
