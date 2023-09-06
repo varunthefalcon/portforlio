@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Icon } from "semantic-ui-react";
-import { URL_INITIAL_DATA } from "../../utils/constants";
+import { URL_GET_CSV_META } from "../../utils/constants";
 import ReactMarkdown from "react-markdown";
 
 const Greetings = () => {
@@ -13,9 +13,9 @@ const Greetings = () => {
 
   const fetchData = async () => {
     const config = {
-      url: URL_INITIAL_DATA,
+      url: URL_GET_CSV_META,
       method: "POST",
-      data: {
+      params: {
         fileID: params.id,
       },
     };

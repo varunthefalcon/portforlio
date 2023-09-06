@@ -1,8 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import { toast } from "react-toastify";
-import { Button, Grid, Icon, Loader, Popup } from "semantic-ui-react";
-import { URL_UPLOAD_CSV } from "../utils/constants";
+// import { toast } from "react-toastify";
+import { Button, Icon, Popup } from "semantic-ui-react";
+import { URL_CSV_PRESIGNED, uuid } from "../utils/constants";
 import { useNavigate } from "react-router-dom";
 
 const Banner = () => {
@@ -21,23 +21,18 @@ const Banner = () => {
     // if (!csvFile) {
     // toast.warn("Please upload a file");
     // }
-
-    let formdata = new FormData();
-
-    formdata.append("csv_file", csvFile);
+    const secureName = uuid();
+    const preSignedURLResp = await axios.get(
+      URL_CSV_PRESIGNED + "?fileID=" + secureName
+    );
 
     try {
-      const config = {
-        method: "POST",
-        url: URL_UPLOAD_CSV,
-        data: formdata,
-      };
       setUploading(true);
-      const resp = await axios(config);
+      const resp = await axios.put(preSignedURLResp.data, csvFile);
       console.log(resp);
       setUploadingDone(true);
       setTimeout(() => {
-        navigate("/autoeda/app/" + resp?.data?.fileID);
+        navigate("/autoeda/app/" + secureName);
       }, 500);
     } catch (error) {
       console.error(error);
