@@ -1,7 +1,7 @@
 import Randomizer from "./randomizer";
 import "./App.scss";
 import varun from "./varun.png";
-import { AiFillFacebook, AiFillYoutube, AiFillGithub } from "react-icons/ai";
+import { AiFillFacebook, AiFillGithub } from "react-icons/ai";
 import { BiLogoGmail } from "react-icons/bi";
 import { FaStackOverflow, FaPhoneSquareAlt, FaLinkedin } from "react-icons/fa";
 import { ImFolderDownload } from "react-icons/im";
@@ -96,6 +96,10 @@ function Portfolio() {
 
       return () => clearInterval(interval);
     }, 1000);
+  }, []);
+
+  useEffect(() => {
+    window.document.title = "Varun SK";
   }, []);
 
   return (
