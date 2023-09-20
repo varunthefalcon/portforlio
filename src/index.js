@@ -7,7 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import CookieConsent from "react-cookie-consent";
 import { HotKeys } from "react-hotkeys";
-import { Button, Modal } from "semantic-ui-react";
+import { Modal } from "semantic-ui-react";
 
 const App = () => {
   return (
@@ -50,7 +50,6 @@ const A11yContainer = (props) => {
   const [modalFlag, setModalFlag] = useState(false);
 
   const openModal = useCallback(() => {
-    console.log("modal opened");
     setModalFlag(true);
   }, []);
 
@@ -61,6 +60,12 @@ const A11yContainer = (props) => {
       }, 500);
     }
   }, [modalFlag]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      window.document.getElementById("ally_ribbon")?.focus();
+    }, 500);
+  }, []);
 
   return (
     <>
@@ -90,7 +95,8 @@ const A11yContainer = (props) => {
               })}
               <small>
                 I have focused my efforts to make this site accessible to Screen
-                readers and users with limited mobility. Kindly email me on
+                readers and users with limited mobility. Kindly email me on{" "}
+                {` `}
                 <a type="email" href="mailto: varunsk.dev@gmail.com">
                   varunsk.dev@gmail.com
                 </a>
@@ -98,13 +104,9 @@ const A11yContainer = (props) => {
             </p>
           </Modal.Content>
           <Modal.Actions>
-            <Button
-              role="button"
-              tabIndex={0}
-              onClick={() => setModalFlag(false)}
-            >
+            <button role="button" onClick={() => setModalFlag(false)}>
               Close
-            </Button>
+            </button>
           </Modal.Actions>
         </Modal>
         <span
@@ -115,6 +117,7 @@ const A11yContainer = (props) => {
             padding: "0 5px",
             cursor: "pointer",
           }}
+          id={"ally_ribbon"}
           role="button"
           tabIndex={0}
           onKeyDown={(event) => {

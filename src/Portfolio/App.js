@@ -58,7 +58,6 @@ export const floatInfo = [
     label: "CV",
     Icon: ImFolderDownload,
     highlight: true,
-    download: true,
     link: "/Varun_SK_Frontend_CV.pdf",
   },
   {
