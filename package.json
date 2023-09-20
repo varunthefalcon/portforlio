@@ -12,6 +12,7 @@
     "react-cookie-consent": "^8.0.1",
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.5",
+    "react-hotkeys": "^2.0.0",
     "react-icons": "^4.10.1",
     "react-markdown": "^8.0.7",
     "react-router-dom": "^6.15.0",

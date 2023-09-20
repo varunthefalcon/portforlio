@@ -10,7 +10,7 @@ import { DiAndroid } from "react-icons/di";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const floatInfo = [
+export const floatInfo = [
   {
     id: "github",
     label: "Github",
@@ -59,7 +59,7 @@ const floatInfo = [
     Icon: ImFolderDownload,
     highlight: true,
     download: true,
-    link: "https://github.com/varunthefalcon/drunk-portfolio/raw/master/Varun_SK_Frontend_CV.pdf",
+    link: "/Varun_SK_Frontend_CV.pdf",
   },
   {
     id: "autoEDA",
