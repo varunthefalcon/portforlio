@@ -17,12 +17,12 @@ export const floatInfo = [
     Icon: AiFillGithub,
     link: "https://github.com/varunthefalcon",
   },
-  {
-    id: "facebook",
-    label: "Facebook",
-    Icon: AiFillFacebook,
-    link: "https://www.facebook.com/varunthefalcon/",
-  },
+  // {
+  //   id: "facebook",
+  //   label: "Facebook",
+  //   Icon: AiFillFacebook,
+  //   link: "https://www.facebook.com/varunthefalcon/",
+  // },
   // {
   //   id: "youtube",
   //   label: "Youtube",
