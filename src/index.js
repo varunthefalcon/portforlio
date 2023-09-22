@@ -33,7 +33,7 @@ const App = () => {
         style={{ display: "block", width: "200px" }}
         expires={1}
       >
-        This website uses cookies to for analytical purposes.
+        This website uses cookies for analytical purposes.
       </CookieConsent>
     </>
   );
