@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Portfolio, { floatInfo } from "./Portfolio/App";
 import AutoEDA from "./autoEDA/App";
@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import CookieConsent from "react-cookie-consent";
 import { HotKeys } from "react-hotkeys";
 import { Modal } from "semantic-ui-react";
+import ATS from "./ATS";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
             }
           />
           <Route path="/autoeda/*" index element={<AutoEDA />} />
+          <Route path="/ats/*" index element={<ATS />} />
         </Routes>
       </BrowserRouter>
       <CookieConsent
@@ -114,6 +116,8 @@ const A11yContainer = (props) => {
             background: "#d4d4d4",
             position: "absolute",
             zIndex: 110,
+            bottom: 0,
+            right: 0,
             padding: "0 5px",
             cursor: "pointer",
           }}

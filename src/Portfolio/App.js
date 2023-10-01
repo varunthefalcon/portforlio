@@ -1,12 +1,13 @@
 import Randomizer from "./randomizer";
 import "./App.scss";
 import varun from "./varun.png";
-import { AiFillFacebook, AiFillGithub } from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
 import { BiLogoGmail } from "react-icons/bi";
 import { FaStackOverflow, FaPhoneSquareAlt, FaLinkedin } from "react-icons/fa";
 import { ImFolderDownload } from "react-icons/im";
 import { MdAutoGraph } from "react-icons/md";
 import { DiAndroid } from "react-icons/di";
+import { AiOutlineFileSearch } from "react-icons/ai";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -72,6 +73,13 @@ export const floatInfo = [
     label: "LinkedIn",
     Icon: FaLinkedin,
     link: "https://www.linkedin.com/in/varun-sureshkumar/",
+  },
+  {
+    id: "keywordChecker",
+    label: "ATS Checker",
+    Icon: AiOutlineFileSearch,
+    highlight: true,
+    link: "/ats",
   },
 ];
 

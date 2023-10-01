@@ -10,6 +10,9 @@ export const URL_GET_CSV_META =
 export const URL_USER_CHAT =
   "https://2rpf67xgj7cz6i2ndojv7ffspe0kmphf.lambda-url.eu-west-2.on.aws/";
 
+export const ATS_GPT_URL =
+  "https://dpd4rzkklqwvb5jdyfg25vx2pu0xcmoy.lambda-url.eu-west-2.on.aws/";
+
 export const uuid = () => {
   return Array.from(Array(16))
     .map((e) =>
