@@ -50,14 +50,14 @@
 
 .ats_product_name::before {
   position: absolute;
-  content: "KEYWORD CHECKER";
+  content: "ATS ASSIST";
   transform: translate(0px, 3px);
   z-index: -1;
 }
 
 .ats_product_name::after {
   position: absolute;
-  content: "KEYWORD CHECKER";
+  content: "ATS ASSIST";
   z-index: -1;
   top: -2px;
   bottom: -2px;

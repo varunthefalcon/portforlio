@@ -131,7 +131,7 @@ const ATS = () => {
     <>
       <div style={{ padding: "20px 50px", background: "#fbfdff" }}>
         <div style={{ textAlign: "center", marginBottom: "15px" }}>
-          <h1 className="ats_product_name">KEYWORD CHECKER</h1>
+          <h1 className="ats_product_name">ATS ASSIST</h1>
         </div>
         <br />
         <Grid columns={2}>

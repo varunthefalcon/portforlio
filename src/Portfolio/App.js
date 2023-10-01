@@ -76,7 +76,7 @@ export const floatInfo = [
   },
   {
     id: "keywordChecker",
-    label: "ATS Checker",
+    label: "ATS Assist",
     Icon: AiOutlineFileSearch,
     highlight: true,
     link: "/ats",
