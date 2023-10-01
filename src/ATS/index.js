@@ -36,11 +36,11 @@ const ATS = () => {
     let resp = {};
     try {
       setIsJDloading(true);
-      onJDSubmit_GET_SVG();
       resp = await axios(config);
     } catch (error) {
       console.error(error);
     } finally {
+      onJDSubmit_GET_SVG();
       setIsJDloading(false);
     }
 
@@ -107,11 +107,11 @@ const ATS = () => {
     let resp = {};
     try {
       setIsCVloading(true);
-      onCVSubmit_GET_SVG();
       resp = await axios(config);
     } catch (error) {
       console.error(error);
     } finally {
+      onCVSubmit_GET_SVG();
       setIsCVloading(false);
     }
 
