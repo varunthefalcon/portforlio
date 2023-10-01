@@ -132,13 +132,19 @@ const ATS = () => {
               <div className="ats_title_wrapper">
                 <h3>Job Description</h3>
 
-                <Button
-                  color="primary"
-                  loading={isJDloading}
-                  onClick={onJDSubmit}
-                >
-                  <Icon name="sync" className="m-0" />
-                </Button>
+                <Popup
+                  content="Refresh"
+                  position="bottom center"
+                  trigger={
+                    <Button
+                      color="primary"
+                      loading={isJDloading}
+                      onClick={onJDSubmit}
+                    >
+                      <Icon name="sync" className="m-0" />
+                    </Button>
+                  }
+                />
               </div>
               <TagRenderer
                 skills={JDSoftSkills}
@@ -169,13 +175,19 @@ const ATS = () => {
               <div className="ats_title_wrapper">
                 <h3>Resume / CV</h3>
 
-                <Button
-                  color="primary"
-                  loading={isCVloading}
-                  onClick={onCVSubmit}
-                >
-                  <Icon name="sync" className="m-0" />
-                </Button>
+                <Popup
+                  content="Refresh"
+                  position="bottom center"
+                  trigger={
+                    <Button
+                      color="primary"
+                      loading={isCVloading}
+                      onClick={onCVSubmit}
+                    >
+                      <Icon name="sync" className="m-0" />
+                    </Button>
+                  }
+                />
               </div>
               <TagRenderer
                 skills={CVSoftSkills}
