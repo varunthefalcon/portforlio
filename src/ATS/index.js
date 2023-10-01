@@ -1,7 +1,7 @@
 import { useMemo, useRef, useState } from "react";
 import axios from "axios";
 import { ATS_GPT_URL, ATS_WORD_CLOUD } from "../autoEDA/utils/constants";
-import { Button, Grid, GridColumn, Icon } from "semantic-ui-react";
+import { Button, Grid, GridColumn, Icon, Popup } from "semantic-ui-react";
 
 import "./index.css";
 
@@ -52,21 +52,17 @@ const ATS = () => {
   };
 
   const onCVSubmit_GET_SVG = async () => {
-    let fmData = new FormData();
-
-    fmData.append("content", cvRef.current.value);
-
     const config = {
       url: ATS_WORD_CLOUD,
       method: "POST",
-      data: fmData,
+      data: cvRef.current.value,
     };
 
     let resp = {};
     try {
       setIsCVloading(true);
       resp = await axios(config);
-      setCVWordCloud(resp?.data?.svg);
+      setCVWordCloud(resp?.data?.svg.replaceAll("\n", ""));
     } catch (error) {
       console.error(error);
     } finally {
@@ -75,21 +71,17 @@ const ATS = () => {
   };
 
   const onJDSubmit_GET_SVG = async () => {
-    let fmData = new FormData();
-
-    fmData.append("content", jdRef.current.value);
-
     const config = {
       url: ATS_WORD_CLOUD,
       method: "POST",
-      data: fmData,
+      data: jdRef.current.value,
     };
 
     let resp = {};
     try {
       setIsJDloading(true);
       resp = await axios(config);
-      setJDWordCloud(resp?.data?.svg);
+      setJDWordCloud(resp?.data?.svg.replaceAll("\n", ""));
     } catch (error) {
       console.error(error);
     } finally {
@@ -156,6 +148,13 @@ const ATS = () => {
               <TagRenderer
                 skills={JDHardSkills}
                 label="Hard Skills"
+                infoComp={
+                  <Popup trigger={<Icon name="info circle" color="blue" />}>
+                    The skills matching in your resume/CV and Job Description
+                    are highlighted in Green. Try to match most skills for
+                    better score.
+                  </Popup>
+                }
                 target_skills={CVHardSkills}
               />
               <SVGRenderer content={JDWordCloud} />
@@ -208,7 +207,13 @@ const ATS = () => {
 export default ATS;
 
 const TagRenderer = (props) => {
-  const { skills = [], label = "", target_skills = [], noTargetCheck } = props;
+  const {
+    skills = [],
+    label = "",
+    target_skills = [],
+    infoComp = "",
+    noTargetCheck,
+  } = props;
 
   const t_skills = target_skills.map((e) => e.toLowerCase());
 
@@ -216,7 +221,9 @@ const TagRenderer = (props) => {
     <>
       {!!skills.length && (
         <>
-          <h3>{label}</h3>
+          <h3>
+            {label} {infoComp}{" "}
+          </h3>
           <p className="ats_tags_wrapper">
             {skills.map((e) => (
               <span
