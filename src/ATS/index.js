@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import axios from "axios";
-import { ATS_GPT_URL } from "../autoEDA/utils/constants";
+import { ATS_GPT_URL, ATS_WORD_CLOUD } from "../autoEDA/utils/constants";
 import { Button, Grid, GridColumn, Icon } from "semantic-ui-react";
 
 import "./index.css";
@@ -12,6 +12,8 @@ const ATS = () => {
   const [JDHardSkills, setJDHardSkills] = useState([]);
   const [isJDloading, setIsJDloading] = useState(false);
   const [isCVloading, setIsCVloading] = useState(false);
+  const [CVWordCloud, setCVWordCloud] = useState("");
+  const [JDWordCloud, setJDWordCloud] = useState("");
 
   const jdRef = useRef();
   const cvRef = useRef();
@@ -34,6 +36,7 @@ const ATS = () => {
     let resp = {};
     try {
       setIsJDloading(true);
+      onJDSubmit_GET_SVG();
       resp = await axios(config);
     } catch (error) {
       console.error(error);
@@ -48,6 +51,52 @@ const ATS = () => {
     setJDHardSkills(hard_skills);
   };
 
+  const onCVSubmit_GET_SVG = async () => {
+    let fmData = new FormData();
+
+    fmData.append("content", cvRef.current.value);
+
+    const config = {
+      url: ATS_WORD_CLOUD,
+      method: "POST",
+      data: fmData,
+    };
+
+    let resp = {};
+    try {
+      setIsCVloading(true);
+      resp = await axios(config);
+      setCVWordCloud(resp?.data?.svg);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsCVloading(false);
+    }
+  };
+
+  const onJDSubmit_GET_SVG = async () => {
+    let fmData = new FormData();
+
+    fmData.append("content", jdRef.current.value);
+
+    const config = {
+      url: ATS_WORD_CLOUD,
+      method: "POST",
+      data: fmData,
+    };
+
+    let resp = {};
+    try {
+      setIsJDloading(true);
+      resp = await axios(config);
+      setJDWordCloud(resp?.data?.svg);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsJDloading(false);
+    }
+  };
+
   const onCVSubmit = async () => {
     const config = {
       url: ATS_GPT_URL,
@@ -58,6 +107,7 @@ const ATS = () => {
     let resp = {};
     try {
       setIsCVloading(true);
+      onCVSubmit_GET_SVG();
       resp = await axios(config);
     } catch (error) {
       console.error(error);
@@ -108,6 +158,7 @@ const ATS = () => {
                 label="Hard Skills"
                 target_skills={CVHardSkills}
               />
+              <SVGRenderer content={JDWordCloud} />
               <div>
                 <h3 className="mb-5">Just paste text</h3>
                 <textarea ref={jdRef} className="ats_textarea" />
@@ -137,6 +188,7 @@ const ATS = () => {
                 label="Hard Skills"
                 noTargetCheck={true}
               />
+              <SVGRenderer content={CVWordCloud} />
               <div>
                 <h3 className="mb-5">Just paste text</h3>
                 <textarea ref={cvRef} className="ats_textarea" />
@@ -184,6 +236,17 @@ const TagRenderer = (props) => {
           </p>
         </>
       )}
+    </>
+  );
+};
+
+const SVGRenderer = (props) => {
+  const { content = "" } = props;
+  if (!!!content) return "";
+  return (
+    <>
+      <h3>Word Cloud</h3>
+      <img width="100%" src={`data:image/svg+xml;utf8,${content}`} />
     </>
   );
 };

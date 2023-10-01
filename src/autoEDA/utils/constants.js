@@ -13,6 +13,8 @@ export const URL_USER_CHAT =
 export const ATS_GPT_URL =
   "https://dpd4rzkklqwvb5jdyfg25vx2pu0xcmoy.lambda-url.eu-west-2.on.aws/";
 
+export const ATS_WORD_CLOUD = "http://varunsk.pythonanywhere.com/";
+
 export const uuid = () => {
   return Array.from(Array(16))
     .map((e) =>
