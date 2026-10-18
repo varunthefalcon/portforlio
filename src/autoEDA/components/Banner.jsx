@@ -4,6 +4,7 @@ import axios from "axios";
 import { Button, Icon, Popup } from "semantic-ui-react";
 import { URL_CSV_PRESIGNED, uuid } from "../utils/constants";
 import { useNavigate } from "react-router-dom";
+import titanicCSV from "../Assets/Titanic.csv?url";
 
 const Banner = () => {
   const navigate = useNavigate();
@@ -88,7 +89,7 @@ const Banner = () => {
               />
             </Button>
           ) : (
-            <a href={require("../Assets/Titanic.csv")} download>
+            <a href={titanicCSV} download>
               <Popup
                 position="bottom left"
                 trigger={
